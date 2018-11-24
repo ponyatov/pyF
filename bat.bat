@@ -1,1 +1,1 @@
-@gvim -p FORTH.py Makefile
+@gvim -p FORTH.py Makefile doxy.gen

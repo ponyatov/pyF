@@ -1,7 +1,14 @@
 #!/usr/bin/env python2.7
-# tiny object FORTH in Python
 
-# object system
+## @file
+## @brief tiny object FORTH in Python
+
+## @defgroup pyf pyFORTH
+## @brief tiny object FORTH in Python
+## @{
+
+## @defgrup sym symbolic object system
+## @{
 
 ## base object (universal data container)
 class Object:
@@ -34,19 +41,23 @@ class Fn(Active):
         self.fn = F
     def __call__(self):
         self.fn()
+## @}
 
-# data stack
+## data stack
 S = Stack('data')
 
-# vocabulary
+## vocabulary
 W = Map('FORTH')
 
-# ? ( -- ) print data stack
+## `? ( -- )` print data stack
 def q(): print S
 W['?'] = Fn(q)
 
-# syntax parser using PLY library
-import ply.lex as lex   # FORTH has no syntax: lexer only
+## @defgroup ply syntax parser using PLY library
+## @brief FORTH has no syntax: lexer only
+## @{
+
+import ply.lex as lex
 
 tokens = ['symbol','number','string']
 
@@ -79,6 +90,8 @@ def t_error(t): raise SyntaxError(t)
 
 lexer = lex.lex()
 
+## @}
+
 # WORD ( -- token ) get next literal object from source code stream
 def WORD():
     token = lexer.token()
@@ -94,4 +107,6 @@ def INTERPRET():
 
 while True:
     S.push(raw_input('ok> ')) ; INTERPRET()
+
+## @}
 
