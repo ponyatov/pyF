@@ -70,11 +70,11 @@ $(function() {
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_f_o_r_t_h_1_1_object-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">FORTH.Object Class Reference<div class="ingroups"><a class="el" href="group__pyf.html">pyFORTH</a></div></div>  </div>
+<div class="title">FORTH.Object Class Reference<div class="ingroups"><a class="el" href="group__pyf.html">pyFORTH</a> &raquo; <a class="el" href="group__sym.html">symbolic object system</a> &raquo; <a class="el" href="group__object.html">base Object</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>sym symbolic object system  
+<p>base object  
  <a href="class_f_o_r_t_h_1_1_object.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for FORTH.Object:</div>
@@ -82,7 +82,7 @@ Inheritance diagram for FORTH.Object:</div>
  <div class="center">
   <img src="class_f_o_r_t_h_1_1_object.png" usemap="#FORTH.Object_map" alt=""/>
   <map id="FORTH.Object_map" name="FORTH.Object_map">
-<area href="class_f_o_r_t_h_1_1_active.html" title="active object has execution semantics " alt="FORTH.Active" shape="rect" coords="0,56,113,80"/>
+<area href="class_f_o_r_t_h_1_1_active.html" alt="FORTH.Active" shape="rect" coords="0,56,113,80"/>
 <area href="class_f_o_r_t_h_1_1_container.html" alt="FORTH.Container" shape="rect" coords="184,56,297,80"/>
 <area href="class_f_o_r_t_h_1_1_primitive.html" alt="FORTH.Primitive" shape="rect" coords="492,56,605,80"/>
 <area href="class_f_o_r_t_h_1_1_fn.html" title="function " alt="FORTH.Fn" shape="rect" coords="0,112,113,136"/>
@@ -91,36 +91,62 @@ Inheritance diagram for FORTH.Object:</div>
 <area href="class_f_o_r_t_h_1_1_number.html" alt="FORTH.Number" shape="rect" coords="369,112,482,136"/>
 <area href="class_f_o_r_t_h_1_1_string.html" alt="FORTH.String" shape="rect" coords="492,112,605,136"/>
 <area href="class_f_o_r_t_h_1_1_symbol.html" alt="FORTH.Symbol" shape="rect" coords="615,112,728,136"/>
+<area href="class_f_o_r_t_h_1_1_integer.html" alt="FORTH.Integer" shape="rect" coords="369,168,482,192"/>
+<area href="class_f_o_r_t_h_1_1_bin.html" alt="FORTH.Bin" shape="rect" coords="307,224,420,248"/>
+<area href="class_f_o_r_t_h_1_1_hex.html" alt="FORTH.Hex" shape="rect" coords="430,224,543,248"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a81adf99a3564590d695f3119bde74383"><td class="memItemLeft" align="right" valign="top"><a id="a81adf99a3564590d695f3119bde74383"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, V)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#a81adf99a3564590d695f3119bde74383">__init__</a> (self, V)</td></tr>
+<tr class="memdesc:a81adf99a3564590d695f3119bde74383"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct object with given primitive value <br /></td></tr>
 <tr class="separator:a81adf99a3564590d695f3119bde74383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">dump</div></td></tr>
 <tr class="memitem:a812200eb87109d6b6bb3075d3559ef02"><td class="memItemLeft" align="right" valign="top"><a id="a812200eb87109d6b6bb3075d3559ef02"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__repr__</b> (self)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#a812200eb87109d6b6bb3075d3559ef02">__repr__</a> (self)</td></tr>
+<tr class="memdesc:a812200eb87109d6b6bb3075d3559ef02"><td class="mdescLeft">&#160;</td><td class="mdescRight">print object <br /></td></tr>
 <tr class="separator:a812200eb87109d6b6bb3075d3559ef02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbfe0fb05e10d1c93ae64a47093278a1"><td class="memItemLeft" align="right" valign="top"><a id="adbfe0fb05e10d1c93ae64a47093278a1"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>dump</b> (self)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#adbfe0fb05e10d1c93ae64a47093278a1">dump</a> (self)</td></tr>
+<tr class="memdesc:adbfe0fb05e10d1c93ae64a47093278a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">full dump in tree form <br /></td></tr>
 <tr class="separator:adbfe0fb05e10d1c93ae64a47093278a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07c7a4650529562cfce0fc17e77735da"><td class="memItemLeft" align="right" valign="top"><a id="a07c7a4650529562cfce0fc17e77735da"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>head</b> (self)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#a07c7a4650529562cfce0fc17e77735da">head</a> (self)</td></tr>
+<tr class="memdesc:a07c7a4650529562cfce0fc17e77735da"><td class="mdescLeft">&#160;</td><td class="mdescRight">short dump: header only <br /></td></tr>
 <tr class="separator:a07c7a4650529562cfce0fc17e77735da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">associative array</div></td></tr>
+<tr class="memitem:a65e34b43e8f02eb1ac8cbbb6e1e7a8b8"><td class="memItemLeft" align="right" valign="top"><a id="a65e34b43e8f02eb1ac8cbbb6e1e7a8b8"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#a65e34b43e8f02eb1ac8cbbb6e1e7a8b8">__setitem__</a> (self, key, obj)</td></tr>
+<tr class="memdesc:a65e34b43e8f02eb1ac8cbbb6e1e7a8b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">store <code>=</code> operator <code>self[key] = obj</code> <br /></td></tr>
+<tr class="separator:a65e34b43e8f02eb1ac8cbbb6e1e7a8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d9db344a6aa3afcfdf0549fc313c52"><td class="memItemLeft" align="right" valign="top"><a id="a99d9db344a6aa3afcfdf0549fc313c52"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#a99d9db344a6aa3afcfdf0549fc313c52">__getitem__</a> (self, key)</td></tr>
+<tr class="memdesc:a99d9db344a6aa3afcfdf0549fc313c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">fetch operator <code>self[key]</code> <br /></td></tr>
+<tr class="separator:a99d9db344a6aa3afcfdf0549fc313c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa0121ca343537a606d79256c84333f13"><td class="memItemLeft" align="right" valign="top"><a id="aa0121ca343537a606d79256c84333f13"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#aa0121ca343537a606d79256c84333f13">type</a></td></tr>
+<tr class="memdesc:aa0121ca343537a606d79256c84333f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">class/type tag <br /></td></tr>
 <tr class="separator:aa0121ca343537a606d79256c84333f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95008587fce048759e75e9cf6f97b3c7"><td class="memItemLeft" align="right" valign="top"><a id="a95008587fce048759e75e9cf6f97b3c7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>value</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#a95008587fce048759e75e9cf6f97b3c7">value</a></td></tr>
+<tr class="memdesc:a95008587fce048759e75e9cf6f97b3c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">single primitive value (in implementation language: Python) <br /></td></tr>
 <tr class="separator:a95008587fce048759e75e9cf6f97b3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fe68856e9cadf2ac7f28ccf1fa2b3ba"><td class="memItemLeft" align="right" valign="top"><a id="a8fe68856e9cadf2ac7f28ccf1fa2b3ba"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#a8fe68856e9cadf2ac7f28ccf1fa2b3ba">nest</a></td></tr>
+<tr class="memdesc:a8fe68856e9cadf2ac7f28ccf1fa2b3ba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ordered</b>: <code>nest[]</code>ed elements = stack = vector = array <br /></td></tr>
+<tr class="separator:a8fe68856e9cadf2ac7f28ccf1fa2b3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097459994d452d3f904fbe66c11c5fbe"><td class="memItemLeft" align="right" valign="top"><a id="a097459994d452d3f904fbe66c11c5fbe"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_o_r_t_h_1_1_object.html#a097459994d452d3f904fbe66c11c5fbe">attr</a></td></tr>
+<tr class="memdesc:a097459994d452d3f904fbe66c11c5fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>associative array</b>: object slots = map elements (string keyed) <br /></td></tr>
+<tr class="separator:a097459994d452d3f904fbe66c11c5fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>sym symbolic object system </p>
-<p>base object (universal data container) </p>
+<div class="textblock"><p>base object </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_f_o_r_t_h_8py.html">FORTH.py</a></li>
 </ul>

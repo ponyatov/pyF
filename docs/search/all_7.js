@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['q',['q',['../group__pyf.html#ga3c0f8a3c2c5a6a57400fd0ece223bd38',1,'FORTH']]]
+  ['integer',['Integer',['../class_f_o_r_t_h_1_1_integer.html',1,'FORTH']]],
+  ['interpreter',['interpreter',['../group__interp.html',1,'']]]
 ];

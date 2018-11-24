@@ -7,31 +7,92 @@
 ## @brief tiny object FORTH in Python
 ## @{
 
-## @defgrup sym symbolic object system
+## @defgroup sym symbolic object system
+## @brief computation on universal data containers
 ## @{
 
-## base object (universal data container)
+## @defgroup object base Object
+## @brief universal data container
+## @{
+
+## base object
 class Object:
+    ## construct object with given primitive value
     def __init__(self,V):
+        ## class/type tag
         self.type = self.__class__.__name__.lower()
+        ## single primitive value (in implementation language: Python)
         self.value = V
+        ## **ordered**: `nest[]`ed elements = stack = vector = array
+        self.nest = []
+        ## **associative array**: object slots = map elements (string keyed)
+        self.attr = {}
+
+    ## @name dump
+    ## @{
+
+    ## print object
     def __repr__(self):
         return self.dump()
+    ## full dump in tree form
     def dump(self):
         return self.head()
+    ## short dump: header only
     def head(self):
         return '<%s:%s>' % (self.type,self.value)
+    ## @}
+
+    ## @name associative array
+    ## @{
+
+    ## store `=` operator `self[key] = obj`
+    def __setitem__(self,key,obj):
+        self.attr[key] = obj ; return self
+    ## fetch operator `self[key]`
+    def __getitem__(self,key):
+        return self.attr[key]
+    ## @}
+
+## @}
+
+## @defgroup Primitives
+## @{
 
 class Primitive(Object): pass
+
+## @defgroup symbol Symbol
+## @{
 class Symbol(Primitive): pass
+## @}
+
+## @defgroup string String
+## @{
 class String(Primitive): pass
+## @}
+
+## @defgroup number Numbers
+## @{
 class Number(Primitive): pass
+class Integer(Number): pass
+class Hex(Integer): pass
+class Bin(Integer): pass
+## @}
+
+## @}
+
+## @defgroup cont Data containers
+## @{
 
 class Container(Object): pass
 class Stack(Container): pass
 class Map(Container): pass
 
-## active object has execution semantics
+## @}
+
+## @defgroup active Active objects
+## @brief has execution semantics
+## @{
+
 class Active(Object): pass
 
 ## function
@@ -41,6 +102,9 @@ class Fn(Active):
         self.fn = F
     def __call__(self):
         self.fn()
+
+## @}
+
 ## @}
 
 ## data stack
@@ -52,6 +116,9 @@ W = Map('FORTH')
 ## `? ( -- )` print data stack
 def q(): print S
 W['?'] = Fn(q)
+
+## @defgroup interp interpreter
+## @{
 
 ## @defgroup ply syntax parser using PLY library
 ## @brief FORTH has no syntax: lexer only
@@ -105,8 +172,11 @@ def INTERPRET():
         if not WORD(): break
         q()
 
+# startup: run command line console
 while True:
     S.push(raw_input('ok> ')) ; INTERPRET()
+
+## @}
 
 ## @}
 
