@@ -35,11 +35,16 @@ class Object:
     def __repr__(self):
         return self.dump()
     ## full dump in tree form
-    def dump(self):
-        return self.head()
+    def dump(self,depth=0):
+        S = self.pad(depth) + self.head()
+        for j in self.nest:
+            S += j.dump(depth+1)
+        return S
     ## short dump: header only
-    def head(self):
-        return '<%s:%s>' % (self.type,self.value)
+    def head(self,prefix=''):
+        return '%s<%s:%s>' % (prefix,self.type,self.value)
+    def pad(self,N):
+        return '\n' + '\t'*N
     ## @}
 
     ## @name associative array
@@ -51,6 +56,14 @@ class Object:
     ## fetch operator `self[key]`
     def __getitem__(self,key):
         return self.attr[key]
+    ## @}
+    
+    ## @name stack
+    ## @{
+    def push(self,obj):
+        self.nest.append(obj) ; return self
+    def pop(self):
+        return self.nest.pop()
     ## @}
 
 ## @}
@@ -153,7 +166,7 @@ def t_symbol(t):
     r'[a-zA-Z0-9_]+'
     return Symbol(t.value)
 
-def t_error(t): raise SyntaxError(t)
+def t_ANY_error(t): raise SyntaxError(t)
 
 lexer = lex.lex()
 
@@ -167,7 +180,7 @@ def WORD():
 
 # INTERPRET ( string:src -- ... ) interpret given string
 def INTERPRET():
-    lexer.input(pop())
+    lexer.input(S.pop())
     while True:
         if not WORD(): break
         q()
