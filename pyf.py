@@ -36,6 +36,15 @@ class Object:
         that = self.box(that)
         self.nest.append(that); return self
 
+class Container(Object):
+    def __init__(self, V=''): super().__init__(V)
+
+class Map(Container):
+    def gen(self, to, depth=0):
+        ret = f'{to.tab*depth}{{\n'
+        ret += f'{to.tab*depth}}}\n'
+        return ret
+
 class IO(Object):
     def __init__(self, V):
         super().__init__(V)
@@ -62,7 +71,7 @@ class File(IO):
 
     def sync(self):
         with open(self.path, 'w') as F:
-            pass
+            for i in self: F.write(i.gen(self))
 
 class Meta(Object): pass
 
@@ -82,7 +91,24 @@ class Project(Meta):
 
     def g_vscode(self):
         self.vscode = Dir('.vscode'); self.d // self.vscode
-        self.settings = jsonFile('settings'); self.vscode // self.settings
+        self.settings()
+        self.tasks()
+        self.extensions()
+
+    def settings(self):
+        self.settings = jsonFile('settings')
+        self.vscode // self.settings
+        self.vscode_ = Map(); self.settings // self.vscode_
+        self.vscode.multi = Vector()
+        self.vscode_["multiCommand.commands"] = self.vscode.multi
+
+    def tasks(self):
+        self.tasks = jsonFile('tasks')
+        self.vscode // self.tasks
+
+    def extensions(self):
+        self.extensions = jsonFile('extensions')
+        self.vscode // self.extensions
 
     def sync(self):
         self.d.sync()
@@ -91,53 +117,6 @@ if __name__ == '__main__':
     if sys.argv[1] == 'meta':
         p = Project()
         p.sync()
-
-# for i in [
-# './.vscode/settings.json', \
-# './.vscode/tasks.json', \
-# './.vscode/extensions.json', \
-# './bin/.gitignore', \
-# './doc/.gitignore', \
-# './lib/.gitignore', \
-# './src/.gitignore', \
-# './tmp/.gitignore', \
-# './gitignore', \
-# './pyf.py', \
-# './README.md', \
-# './Makefile', \
-# './apt.txt', \
-# './apt.dev', \
-# './requirements.txt', \
-# ]: os.system(f'touch {i}')
-
-# 'python3 -m venv .'
-
-# settings \
-# {
-#     "multiCommand.commands": [
-#         {
-#             "command": "multiCommand.f12",
-#             "sequence": [
-#                 "workbench.action.files.saveAll",
-#                 {"command": "workbench.action.terminal.sendSequence",
-#                     "args": {"text": "\u000D clear ; make meta \u000D"}}
-#                 ]
-#         },
-#     ]
-# }
-
-
-# mk \
-# MODULE = $(notdir $(CURDIR))
-
-# PY  = bin/python3
-# PIP = bin/pip3
-# PEP = bin/autopep8
-
-# meta: $(PY) $(MODULE).py
-# 	$^
-
-# install:
-# 	python3 -m venv .
-# 	bin/pip3 install -U autopep8 pytest
-# 	bin/pip3 install -U -r requirements.txt
+    if sys.argv[1] == 'all':
+        pass
+    raise SyntaxError(['init',sys.argv])
