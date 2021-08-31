@@ -1,0 +1,7 @@
+[package]
+name    = "minsky"
+version = "0.0.1"
+
+[dependences]
+
+[dev-dependences]

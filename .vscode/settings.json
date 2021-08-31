@@ -6,7 +6,7 @@
                 "workbench.action.files.saveAll",
                 {
                     "command": "workbench.action.terminal.sendSequence",
-                    "args": { "text": "\u000D clear ; make meta \u000D" }
+                    "args": { "text": "\u000D clear ; make rust \u000D" }
                 }]
         },
         {
@@ -25,6 +25,7 @@
         "**/lib/python**":true, "**/lib64/**":true,
         "**/include/**":true, "**/share/**":true,
         "**/__pycache__/**":true, "**/.pytest_cache/**":true,
+        "**/target/**":true, "**/Cargo.lock":true,
     },
 
     "editor.tabSize": 4,

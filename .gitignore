@@ -5,6 +5,9 @@
 /docs/
 /pyf/
 
+/target/
+/Cargo.lock
+
 /lib/python*
 /lib64
 /share/

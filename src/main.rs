@@ -1,0 +1,2 @@
+mod test;
+fn main() {}
