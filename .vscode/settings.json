@@ -7,8 +7,7 @@
                 {
                     "command": "workbench.action.terminal.sendSequence",
                     "args": { "text": "\u000D clear ; make meta \u000D" }
-                }
-            ]
+                }]
         },
         {
             "command": "multiCommand.f12",
@@ -17,8 +16,7 @@
                 {
                     "command": "workbench.action.terminal.sendSequence",
                     "args": { "text": "\u000D clear ; make all \u000D" }
-                }
-            ]
+                }]
         }
     ]
 }
