@@ -18,5 +18,16 @@
                     "args": { "text": "\u000D clear ; make all \u000D" }
                 }]
         }
-    ]
+    ],
+
+    "files.exclude": {
+        "**/bin/**":true,
+        "**/lib/python**":true, "**/lib64/**":true,
+        "**/include/**":true, "**/share/**":true,
+        "**/__pycache__/**":true, "**/.pytest_cache/**":true,
+    },
+
+    "editor.tabSize": 4,
+    "editor.rulers": [80],
+    "workbench.tree.indent": 32,
 }
